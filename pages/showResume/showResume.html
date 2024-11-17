@@ -1,0 +1,114 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./showResume.css">
+    
+</head>
+<body>
+    <div class="showResume">
+<h1>hhh</h1>
+    </div>
+
+    <script type="module" src="./showResume.js"></script>
+    <script type="module" src="./resume.js"></script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Resume</title>
+  <link rel="stylesheet" href="./showResume.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+  <div class="resume-container">
+    <header class="resume-header">
+      <div class="profile-img">
+        <img src="https://via.placeholder.com/150" alt="Profile Picture">
+      </div>
+      <div class="personal-info">
+        <h1 id="name" class="name"> </h1>
+        <p id="tittle" class="title">Web Developer</p>
+        <p class="contact-info">
+          <span id="phoneNumber"> </span>
+          <span>Email: john.doe@example.com</span>
+          <span id="portfolio"></span>
+          <span id="linkedinID"></span>
+          <span id="githubID"></span>
+         
+          <span id="location">Location: City, Country</span>
+        </p>
+      </div>
+    </header>
+
+    <section class="summary">
+      <h2>Summary</h2>
+      <p id="summary">I am a passionate web developer with 5+ years of experience specializing in front-end and back-end development. I am skilled in HTML, CSS, JavaScript, and various frameworks.</p>
+    </section>
+
+    <section class="experience">
+      <h2>Experience</h2>
+      <div class="job">
+        <h3>Senior Web Developer</h3>
+        <p class="company">Tech Solutions Inc. | 2020 - Present</p>
+        <ul>
+          <li>Developed and maintained web applications using React, Node.js, and MongoDB.</li>
+          <li>Led a team of developers to build a SaaS product, resulting in a 40% increase in customer engagement.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <h3>Front-End Developer</h3>
+        <p class="company">Creative Agency | 2017 - 2020</p>
+        <ul>
+          <li>Built responsive websites and landing pages using HTML, CSS, JavaScript, and Bootstrap.</li>
+          <li>Collaborated with UI/UX designers to improve user experience on the websites.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="education">
+      <h2>Education</h2>
+      <div class="degree">
+        <h3>Bachelor of Computer Science</h3>
+        <p class="school">XYZ University | 2013 - 2017</p>
+      </div>
+    </section>
+
+    <section class="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>HTML5, CSS3, JavaScript, React</li>
+        <li>Node.js, Express, MongoDB</li>
+        <li>Git, GitHub, Agile Methodology</li>
+        <li>UI/UX Design Principles</li>
+      </ul>
+    </section>
+
+    <section class="contact">
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="mailto:john.doe@example.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/johndoe" target="_blank">LinkedIn</a></li>
+        <li><a href="https://github.com/johndoe" target="_blank">GitHub</a></li>
+      </ul>
+    </section>
+
+    <div class="buttons">
+      <!-- Button for downloading the resume as PDF -->
+      <button id="downloadBtn" class="btn">Download PDF</button>
+      <!-- Button for editing the resume (opens an edit form or modal) -->
+      <button id="editBtn" class="btn">Edit Resume</button>
+    </div>
+  </div>
+
+  <script src="./resume.js"></script>
+</body>
+</html>
