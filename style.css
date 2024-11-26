@@ -6,10 +6,10 @@
 
 .nav-wrapper{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    /* margin-top: 30px; */
+    width: 100%;
     background-color: #F1F3F4;
     padding: 15px;
 }
@@ -31,10 +31,13 @@
     height: 500px;
     margin-top: 60px;
     flex-wrap: wrap;
+    max-width: 100%;
 }
 
 .heroSecText {
-    width: 40%;
+
+    flex-wrap: wrap;
+   max-width: 100vh;
     background-color: whitesmoke;
     text-align: center;
     margin: 10px 20px;
@@ -46,8 +49,10 @@
 }
 
 .btn Button{
-    height: 40px;
-    width: 200px;
+    height: 50px;
+    width: auto;
+    padding: 5px;
+    flex-wrap: wrap;
     border-radius: 10px;
     background-color: rgb(17, 127, 237);
     outline: none;
@@ -55,7 +60,7 @@
 }
 
 .heroaSecImg img{
-    width: 120%;
+    width: auto;
     height: 500px;
 } 
 
