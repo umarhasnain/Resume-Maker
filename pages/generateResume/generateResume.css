@@ -7,11 +7,12 @@
 .resume-wrapper{
     height: 500px;
     width: 1000px;
-    background-color: whitesmoke;
+    background-color: white;
     margin: 0px auto;
     margin-top: 50px;
 
 }
+
 
 .container {
     border: solid 1px #8d8d8d;

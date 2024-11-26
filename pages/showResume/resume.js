@@ -1,105 +1,78 @@
 let receivedData = JSON.parse(localStorage.getItem("userData"));
+let skill = JSON.parse(localStorage.getItem("skills"));
 
-console.log(receivedData[0]);
+const eduData = receivedData[0]; 
+const expData = receivedData[1]; 
+const profileData = receivedData[2]; 
 
-const {fullName,name, job_role, objective,phoneNumber,webLink,linkedinID,githubID}  = receivedData[0]
+const { fullName, jobRole, objective, address, phoneNumber, webLink, linkedinID, githubID, skills ,email} = profileData;
 
-let fullName1 = document.getElementById("name");
-let tittle = document.getElementById("tittle");
-let phone = document.getElementById("phoneNumber");
-let linkedinId = document.getElementById("linkedinID");
-let githubId = document.getElementById("githubID");
-let portfolio = document.getElementById("portfolio");
-let locationResume = document.getElementById("location");
-let summary = document.getElementById("summary");
+//  Profile Information
+document.getElementById("name").innerHTML = fullName || "Your Name";
+document.getElementById("tittle").innerHTML = jobRole || "Job Title";
+document.getElementById("summary").innerHTML = objective || "Objective not provided";
+document.getElementById("phoneNumber").innerHTML = `Phone: ${phoneNumber || "Not available"}`;
+document.getElementById("email").innerHTML = `Email: ${email || "Not available"}`;
+document.getElementById("location").innerHTML = `Address: ${address || "Not available"}`;
 
-fullName1.innerHTML = fullName
-tittle.innerHTML  = job_role
-summary.innerHTML  = objective
-phone.innerHTML  = `Phone: ${phoneNumber}`
-locationResume.innerHTML  = location
-if (webLink || linkedinID || githubID  ) {
-  portfolio.innerHTML = `Portfolio: ${webLink}`
-  linkedinId.innerHTML = `Linkedin: ${linkedinID}`
-  githubId.innerHTML = `Github: ${githubID}`
+if (webLink) document.getElementById("portfolio").innerHTML = `Portfolio: <a style="text-decoration: none; color: gray;" href="${webLink}" target="_blank">${webLink}</a>`;
+if (linkedinID) document.getElementById("linkedinID").innerHTML = `LinkedIn: <a style="text-decoration: none; color: gray;" href="${linkedinID}" target="_blank">${linkedinID}</a>`;
+if (githubID) document.getElementById("githubID").innerHTML = `GitHub: <a style="text-decoration: none; color: gray;" href="${githubID}" target="_blank">${githubID}</a>`;
+
+//  Experience Section
+const experienceSection = document.querySelector(".experience");
+expData.forEach((item) => {
+  const jobDiv = document.createElement("div");
+  jobDiv.classList.add("job");
+  jobDiv.innerHTML = `
+    <h3>${item.possitionName || "Job Title"}</h3>
+    <p class="company">${item.companyName || "Company Name"} | ${item.expStartDate || "Start Date"} - ${item.expEndDate || "End Date"}</p>
+  `;
+  experienceSection.appendChild(jobDiv);
+});
+
+//  Education Section
+const educationSection = document.querySelector(".education");
+eduData.forEach((item) => {  
+  const degreeDiv = document.createElement("div");
+  degreeDiv.classList.add("degree");
+  degreeDiv.innerHTML = `
+    <h3>${item.degreeName || "Degree"}</h3>
+    <p class="school">${item.schoolName || "Institution"} | ${item.startDate || "Start Date"} - ${item.endDate || "End Date"}</p>
+  `;
+  educationSection.appendChild(degreeDiv);
+});
+
+//  Skills Section
+const skillsSection = document.querySelector(".skills ul");
+skillsSection.innerHTML = ""; 
+if (skill && Array.isArray(skill)) {
+  skill.forEach((skill) => {
+    const skillItem = document.createElement("li");
+    skillItem.textContent = skill;
+    skillsSection.appendChild(skillItem);
+  });
+} else {
+  skillsSection.innerHTML = "<li>No skills provided</li>";
 }
 
 
 
-  
+document.getElementById("downloadBtn").addEventListener("click", () => {
+  const { jsPDF } = window.jspdf; // Import jsPDF
+  const pdf = new jsPDF();
 
+  // Select the resume element
+  const resume = document.querySelector("#resume");
 
-
-
-
-
-
-// // Handle Download Button click
-// document.getElementById('downloadBtn').addEventListener('click', function() {
-//     const { jsPDF } = window.jspdf;
-  
-//     const doc = new jsPDF();
-    
-//     // Add content to PDF
-//     doc.text('John Doe', 20, 20);
-//     doc.text('Web Developer', 20, 30);
-//     doc.text('Email: john.doe@example.com', 20, 40);
-//     doc.text('Phone: (123) 456-7890', 20, 50);
-//     doc.text('Location: City, Country', 20, 60);
-  
-//     // Add a simple resume summary
-//     doc.text('Summary: I am a passionate web developer with 5+ years of experience...', 20, 70);
-  
-//     // Save as PDF
-//     doc.save('resume.pdf');
-//   });
-  
-//   // Handle Edit Button click
-//   document.getElementById('editBtn').addEventListener('click', function() {
-//     alert('This button will allow you to edit the resume.');
-//   });
-  
-
-
-
-// <div class="accordion-item">
-// <h2 class="accordion-header">
-//   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-//     data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-//     Educational Information
-//   </button>
-// </h2>
-// <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-//   <div class="inputDiv accordion-body" >
-//     <div class="container" >
-//       <!-- <div class="heading">SignIn to your account</div> -->
-//       <form>
-//         <div id="education-section">
-//           <div  id="education-item">
-//             <div class="input-field">
-//               <input required="" autocomplete="off" type="text" name="text" id="schoolName" value="" />
-//               <label for="username">School/College/University Name</label>
-//             </div>
-//             <div class="input-field">
-//               <input required="" autocomplete="off" type="text" name="text" id="degreeName" />
-//               <label for="text">Degree Name</label>
-//             </div>
-//             <div class="input-field">
-//               <input required="" autocomplete="off" type="date" name="text" id="startDate" />
-//               <label for="username">Start Date</label>
-//             </div>
-//             <div class="input-field">
-//               <input required="" autocomplete="off" type="date" name="text" id="endDate" />
-//               <label for="username">End Date</label>
-//             </div>
-//             <div>
-//               <Button id="addEducationBtn"
-//                 style="height: 40px; width: 100px; border-radius: 10px;color: white; outline: none; background-color: rgb(17, 127, 237);">Add</Button>
-//             </div>
-//           </div>
-//         </div>
-//       </form>
-//     </div>
-//   </div>
-// </div>
-// </div>
+  // Use jsPDF to capture the resume
+  pdf.html(resume, {
+    callback: function (doc) {
+      doc.save("resume.pdf"); // Save the PDF with the filename "resume.pdf"
+    },
+    x: 10,
+    y: 10,
+    width: 190, // Adjust the width as needed
+    windowWidth: resume.scrollWidth // Ensures correct rendering
+  });
+});

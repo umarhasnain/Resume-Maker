@@ -1,108 +1,175 @@
-let btn = document.getElementById("generateResumeBtn");
 
-let showFunc = () => {
-    let fullName = document.getElementById("full-name");
-    let jobRole = document.getElementById("job-role");
-    let objective = document.getElementById("objective");
-    let phoneNumber = document.getElementById("phoneNumber");
-    let address = document.getElementById("adress");
-    let email = document.getElementById("email");
-    let webLink = document.getElementById("webLink");
-    let linkedinID = document.getElementById("linkedinID");
-    let githubID = document.getElementById("githubID");
 
-    // Array to store education data
-    let educationData = [];
+let dataAll = [];
 
-    // Function to add new education input fields
-    document.getElementById("addEducationBtn").addEventListener("click", function () {
-        const educationSection = document.getElementById("education-section");
+function material() {
+let fullName = document.getElementById("full-name");
+let jobRole = document.getElementById("job-role");
+let objective = document.getElementById("objective");
+let phoneNumber = document.getElementById("phoneNumber");
+let address = document.getElementById("adress");
+let email = document.getElementById("email");
+let webLink = document.getElementById("webLink");
+let linkedinID = document.getElementById("linkedinID");
+let githubID = document.getElementById("githubID");
 
-        const newEducationItem = document.createElement("div");
-        newEducationItem.classList.add("input-fields-container");
 
-        const schoolNameInput = document.createElement("input");
-        schoolNameInput.type = "text";
-        schoolNameInput.placeholder = "School/College/University Name";
-        schoolNameInput.classList.add("school-name");
-
-        const degreeNameInput = document.createElement("input");
-        degreeNameInput.type = "text";
-        degreeNameInput.placeholder = "Degree Name";
-        degreeNameInput.classList.add("degree-name");
-
-        const startDateInput = document.createElement("input");
-        startDateInput.type = "date";
-        startDateInput.classList.add("start-date");
-
-        const endDateInput = document.createElement("input");
-        endDateInput.type = "date";
-        endDateInput.classList.add("end-date");
-
-        newEducationItem.appendChild(schoolNameInput);
-        newEducationItem.appendChild(degreeNameInput);
-        newEducationItem.appendChild(startDateInput);
-        newEducationItem.appendChild(endDateInput);
-
-        educationSection.appendChild(newEducationItem);
-    });
-
-    // Function to collect and save education data to the array
-    function collectEducationData() {
-        const schoolNames = document.querySelectorAll(".school-name");
-        const degreeNames = document.querySelectorAll(".degree-name");
-        const startDates = document.querySelectorAll(".start-date");
-        const endDates = document.querySelectorAll(".end-date");
-
-        // Clear previous education data
-        educationData = [];
-
-        schoolNames.forEach((school, index) => {
-            const degree = degreeNames[index].value;
-            const startDate = startDates[index].value;
-            const endDate = endDates[index].value;
-
-            educationData.push({
-                school: school.value,
-                degree: degree,
-                startDate: startDate,
-                endDate: endDate
-            });
-        });
-    }
-
-    // Function to display the collected education data on the resume preview
-    function displayEducationResume() {
-        const resumeSection = document.getElementById("education-resume");
-        resumeSection.innerHTML = ""; // Clear previous resume data
-
-        educationData.forEach(item => {
-            const resumeItem = document.createElement("p");
-            resumeItem.textContent = `${item.degree} at ${item.school} (From ${item.startDate} to ${item.endDate})`;
-            resumeSection.appendChild(resumeItem);
-        });
-    }
-
-    // Collect and save data to localStorage when the "Generate Resume" button is clicked
-    let dataToSend = {
-        fullName: fullName.value,
-        jobRole: jobRole.value,
-        objective: objective.value,
-        phoneNumber: phoneNumber.value,
-        linkedinID: linkedinID.value,
-        githubID: githubID.value,
-        email: email.value,
-        webLink: webLink.value,
-        address: address.value,
-        education: educationData  // Add the collected education data here
-    };
-
-    localStorage.setItem("userData", JSON.stringify(dataToSend));
-
-    // Call the functions to collect and display education data
-    collectEducationData();
-    displayEducationResume();
+let dataToSend = {
+    fullName: fullName.value,
+    jobRole: jobRole.value,
+    objective: objective.value,
+    phoneNumber: phoneNumber.value,
+    linkedinID: linkedinID.value,
+    githubID: githubID.value,
+    email: email.value,
+    webLink: webLink.value,
+    address: address.value,
 };
 
-// Event listener for the "Generate Resume" button
-btn.addEventListener("click", showFunc);
+dataAll.push(dataToSend)
+
+
+}
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const addEducationBtn = document.getElementById("addEducationBtn");
+    const educationSection = document.getElementById("education-section");
+    const generateResumeBtn = document.getElementById("generateResumeBtn");
+  
+   
+    // Add new education fields dynamically
+    addEducationBtn.addEventListener("click", () => {
+      const educationItem = document.createElement("div");
+      educationItem.classList.add("education-item");
+      educationItem.innerHTML = `
+        <div class="input-field">
+          <input type="text" name="schoolName" class="schoolName" placeholder="School/College/University Name" required />
+        </div>
+        <div class="input-field">
+          <input type="text" name="degreeName" class="degreeName" placeholder="Degree Name" required />
+        </div>
+        <div class="input-field">
+          <input type="date" name="startDate" class="startDate" required />
+        </div>
+        <div class="input-field">
+          <input type="date" name="endDate" class="endDate" required />
+        </div>
+      `;
+      educationSection.appendChild(educationItem);
+    });
+
+  
+    // Collect all data and store in local storage
+    const collectData = () => {
+      const educationItems = document.querySelectorAll(".education-item");
+      const educationData = Array.from(educationItems).map((item) => ({
+        schoolName: item.querySelector(".schoolName").value,
+        degreeName: item.querySelector(".degreeName").value,
+        startDate: item.querySelector(".startDate").value,
+        endDate: item.querySelector(".endDate").value,
+      }));
+      dataAll.push(educationData)
+
+      localStorage.setItem("userData", JSON.stringify(dataAll));
+      // alert("Data saved successfully!");
+    };
+  
+    generateResumeBtn.addEventListener("click", collectData);
+  });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const addExpBtn = document.getElementById("addExpBtn");
+    const expSection = document.getElementById("exp-section");
+    const generateResumeBtn = document.getElementById("generateResumeBtn");
+  
+   
+    // Add new education fields dynamically
+    addExpBtn.addEventListener("click", () => {
+      const expItem = document.createElement("div");
+      expItem.classList.add("exp-item");
+      expItem.innerHTML = `
+        <div class="input-field">
+          <input type="text" name="possitionName" class="possitionName" placeholder= "Possition Title" required />
+        </div>
+        <div class="input-field">
+          <input type="text" name="companyName" class="companyName" placeholder="Compnay Name" required />
+        </div>
+        <div class="input-field">
+          <input type="date" name="expStartDate" class="expStartDate" required />
+        </div>
+        <div class="input-field">
+          <input type="date" name="expEndDate" class="expEndDate" required />
+        </div>
+      `;
+      expSection.appendChild(expItem);
+    });
+
+  
+    // Collect all data and store in local storage
+    const collectExpData = () => {
+      const expItems = document.querySelectorAll(".exp-item");
+      const expData = Array.from(expItems).map((item) => ({
+        companyName: item.querySelector(".companyName").value,
+        possitionName: item.querySelector(".possitionName").value,
+        expStartDate: item.querySelector(".expStartDate").value,
+        expEndDate: item.querySelector(".expEndDate").value,
+      }));
+      dataAll.push(expData)
+
+      material()
+      localStorage.setItem("userData", JSON.stringify(dataAll));
+    };
+  
+    generateResumeBtn.addEventListener("click", collectExpData);
+  });
+
+  
+
+  let skillBtn = document.getElementById("skillBtn");
+
+
+    // Function to display skills from the localStorage
+    function displaySkills(skills) {
+      const skillists = document.getElementById("skillists");
+      skillists.innerHTML = ""; 
+      skills.forEach(skill => {
+        const li = document.createElement("li");
+        li.textContent = skill.toUpperCase(); 
+        skillists.appendChild(li);
+      });
+    }
+
+    // Load and display skills on page load
+    window.addEventListener("load", () => {
+      const savedSkills = JSON.parse(localStorage.getItem("skills") || "[]");
+      displaySkills(savedSkills);
+    });
+
+    skillBtn.addEventListener("click", () => {
+      let skillInput = document.getElementById("skillInput");
+
+      // Split the input into lines, remove empty ones, and trim spaces
+      const newSkills = skillInput.value.split("\n").map(skill => skill.trim()).filter(skill => skill !== "");
+
+      // Load existing skills from localStorage
+      const savedSkills = JSON.parse(localStorage.getItem("skills") || "[]");
+
+      // Merge new skills with existing ones, avoiding duplicates
+      const updatedSkills = Array.from(new Set([...savedSkills, ...newSkills]));
+
+      // Save the updated skills array back to localStorage
+      localStorage.setItem("skills", JSON.stringify(updatedSkills));
+
+      // Display the updated skills list
+      displaySkills(updatedSkills);
+      console.log("Updated Skills saved to localStorage:", updatedSkills);
+      skillInput.value =''
+
+    });
+
+    const generateResumeBtn = document.getElementById("generateResumeBtn");
+    generateResumeBtn.addEventListener('click' , collectExpData, collectData)

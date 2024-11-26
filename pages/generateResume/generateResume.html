@@ -65,8 +65,8 @@
             </div>
           </div>
         </div>
+        <br>
       </div>
-
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -110,9 +110,10 @@
             </div>
           </div>
         </div>
+        <br>
       </div>
 
-      <div class="accordion-item">
+      <!-- <div class="accordion-item">
         <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                 Educational Information
@@ -147,148 +148,143 @@
                         </div>
                     </form>
                 </div>
-                <div class="container">
-                    <form>
-                        <div id="education-section">
-                            <div id="education-item">
-                                <div class="input-field">
-                                    <input required="" autocomplete="off" type="text" name="text" id="schoolName" value="" />
-                                    <label for="username">School/College/University Name</label>
-                                </div>
-                                <div class="input-field">
-                                    <input required="" autocomplete="off" type="text" name="text" id="degreeName" />
-                                    <label for="text">Degree Name</label>
-                                </div>
-                                <div class="input-field">
-                                    <input required="" autocomplete="off" type="date" name="text" id="startDate" />
-                                    <label for="username">Start Date</label>
-                                </div>
-                                <div class="input-field">
-                                    <input required="" autocomplete="off" type="date" name="text" id="endDate" />
-                                    <label for="username">End Date</label>
-                                </div>
-                                <div>
-                                    <Button id="addEducationBtn" style="height: 40px; width: 100px; border-radius: 10px; color: white; outline: none; background-color: rgb(17, 127, 237);">Add</Button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+             
             </div>
         </div>
     </div>
-    
-    <!-- Resume Preview Section -->
-    <div id="education-resume">
-      <!-- Collected education data will be displayed here -->
-    </div>
-    
+     -->
+      <!-- Resume Preview Section -->
 
-     
 
-      <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapsefour" aria-expanded="false" aria-controls="flush-collapsefour">
-            Experiance
-          </button>
-        </h2>
-        <div id="flush-collapsefour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-          <div class="inputDiv accordion-body">
-            <div class="container">
-              <!-- <div class="heading">SignIn to your account</div> -->
-              <form class="form" action="">
-                <div class="input-field">
-                  <input required="" autocomplete="off" type="text" name="text" id="full-name" value="" />
-                  <label for="username">Company Name</label>
-                </div>
-                <div class="input-field">
-                  <input required="" autocomplete="off" type="text" name="text" id="job-role" />
-                  <label for="text">Job Role</label>
-                </div>
-                <div class="input-field">
-                  <input required="" autocomplete="off" type="text" name="text" id="text" />
-                  <label for="username">Discription</label>
-                </div>
-
-                <div class="input-field">
-                  <input required="" autocomplete="off" type="date" name="text" id="text" />
-                  <label for="username">Start Date</label>
-                </div>
-
-                <div class="input-field">
-                  <input required="" autocomplete="off" type="date" name="text" id="text" />
-                  <label for="username">End Date</label>
-                </div>
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+              Educational Information
+            </button>
+          </h2>
+          
+          <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              <div class="container">
+                <form id="education-form">
+                  <div id="education-section">
+                    <!-- Education Item -->
+                    <div class="education-item">
+                      <div class="input-field">
+                        <input type="text" name="schoolName" class="schoolName"
+                          placeholder="School/College/University Name" required />
+                      </div>
+                      <div class="input-field">
+                        <input type="text" name="degreeName" class="degreeName" placeholder="Degree Name" required />
+                      </div>
+                      <div class="input-field">
+                        <input type="date" name="startDate" class="startDate" required />
+                      </div>
+                      <div class="input-field">
+                        <input type="date" name="endDate" class="endDate" required />
+                      </div>
+                    </div>
+                  </div>
+                  <button type="button" id="addEducationBtn" class="btn btn-primary">Add More</button>
+                  <!-- <button type="button" id="" class="btn btn-primary">Add </button> -->
+                </form>
+              </div>
             </div>
-            </form>
           </div>
+          <hr>
+        </div>
+
+
+      </div>
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+              Experiance Information
+            </button>
+          </h2>
+          
+          <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              <div class="container">
+                <form id="education-form">
+                  <div id="exp-section">
+                    <!-- Education Item -->
+                    <div class="exp-item">
+                      <div class="input-field">
+                        <input type="text" name="possitionName" class="possitionName"
+                          placeholder="Possition Tittle" required />
+                      </div>
+                      <div class="input-field">
+                        <input type="text" name="companyName" class="companyName" placeholder="Company Name " required />
+                      </div>
+                      <div class="input-field">
+                        <input type="date" name="startDate" class="expStartDate" required />
+                      </div>
+                      <div class="input-field">
+                        <input type="date" name="endDate" class="expEndDate" required />
+                      </div>
+                    </div>
+                  </div>
+                  <button type="button" id="addExpBtn" class="btn btn-primary">Add More</button>
+                  <!-- <button type="button" id="addExpData" class="btn btn-primary">Add </button> -->
+                </form>
+              </div>
+            </div>
+          </div>
+          <hr>
+        </div>
+
+
+      </div>
+   
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#flush-collapsesix" aria-expanded="false" aria-controls="flush-collapsesix">
+          Skils
+        </button>
+      </h2>
+      <div id="flush-collapsesix" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+        <div class="inputDiv accordion-body">
+          <div class="container">
+        
+              <div class="input-field">
+                <p style="font-weight: bold;">Enter Your Skills Here.....</p>
+                <input type="text" placeholder="SKills" id="skillInput">
+                <!-- <input type="text" height="auto" width="150px" placeholder="Enter Your Skills"> -->
+                <!-- <textarea id="skillInput" style="padding: 10px; border-radius: 15px; border: 2px solid  rgb(17, 127, 237);" name="" id="" cols="20" rows="6" placeholder="Ener Your Skills Like: 
+                HTML
+                CSS
+                JavaScript
+                MS Office"></textarea> -->
+                <div>
+                  <ul id="skillists">
+                   
+                  </ul>
+                </div>
+              </div>
+              <button class="btn btn-primary" id="skillBtn">Add Skill</button>
+
+          </div>
+          
         </div>
       </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapsefive" aria-expanded="false" aria-controls="flush-collapsefive">
-            Projects
-          </button>
-        </h2>
-        <div id="flush-collapsefive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-          <div class="inputDiv accordion-body">
-            <div class="container">
-              <!-- <div class="heading">SignIn to your account</div> -->
-              <form class="form" action="">
-                <div class="input-field">
-                  <input required="" autocomplete="off" type="text" name="text" id="full-name" value="" />
-                  <label for="username">Project Name</label>
-                </div>
-                <div class="input-field">
-                  <input required="" autocomplete="off" type="text" name="text" id="job-role" />
-                  <label for="text">Discription</label>
-                </div>
-                <div class="input-field">
-                  <input required="" autocomplete="off" type="text" name="text" id="link" />
-                  <label for="username">Project Link</label>
-                </div>
-
-
-            </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapsesix" aria-expanded="false" aria-controls="flush-collapsesix">
-            Skils
-          </button>
-        </h2>
-        <div id="flush-collapsesix" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-          <div class="inputDiv accordion-body">
-            <div class="container">
-              <!-- <div class="heading">SignIn to your account</div> -->
-              <form class="form" action="">
-
-                <div class="input-field">
-                  <h3>Enter Your Skills Here.....</h3>
-                  <textarea style="padding: 10px;" name="" id="" cols="30" rows="10"></textarea>
-                </div>
-
-
-
-            </div>
-            </form>
-          </div>
-        </div>
-      </div>
-
-
+      <hr>
     </div>
-     <a href="../showResume/showResume.html">
-      <button id="generateResumeBtn">Generate Resume</button>
-     </a>
-    </div>
+
+
+  </div>
+  <div style="display: flex; justify-content: center;align-items: center; flex-wrap: wrap; margin-top: 40px;">
+    <a href="../showResume/showResume.html">
+
+      <button class="btn btn-primary"  id="generateResumeBtn">Generate Resume</button>
+    </a>
+  </div>
+  </div>
 
   </div>
   </div>
@@ -297,19 +293,7 @@
 
   </div>
 
-  <!-- <div class="showResume">
-
-  </div> -->
-
-
-  <!-- <div>
-  <button id="btn">Generate</button>
-</div>
-    <div class="resumePreview">
-        <h1 id="heading">hii</h1>
-
-    </div> -->
-  <script  src="./showResume.js"></script>
+  <script src="./showResume.js"></script>
 </body>
 
 </html>
